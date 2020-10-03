@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 10px;
+}
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #008CBA;} /* Blue */
+</style>
+</head>
+   <body>
+   {% for message in get_flashed_messages() %}
+  <h3>{{message}}</h3>
+   {% endfor %}
+   <p>u can get form here</p>
+   <a href="{{url_for('login',id =0)}}">click here...</a>
+    <form action = "{{url_for('search'}}" method = "post">
+         <label for = "search">Search</label><br>
+         <input type = "text" name = "search" placeholder = "Search"/><br>
+         <input type = "submit" value = "Submit" />
+
+      </form>
+
+   <table >
+  <tr>
+        <th>id</th>
+    <th>name</th>
+    <th>city</th>
+       <th>city</th>
+    <th>addr</th>
+  </tr>
+       {% for per in person%}
+       <tr>
+           <td>{{per.id}}</td>
+           <td>{{per.name}}</td>
+           <td>{{per.city}}</td>
+           <td>{{per.city}}</td>
+           <td>{{per.addr}}</td>
+           <td><a href="{{url_for('login',id=per.id)}}"><button class="button button1">Edit</button></a></td>
+           <td><a href="{{url_for('delete',id=per.id)}}"><button class="button button2">delete</button></td>
+       </tr>
+       {% endfor %}
+</table>
+   </body>
+</html>

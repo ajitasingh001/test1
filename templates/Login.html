@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <h3>Students - Flask SQLAlchemy example</h3>
+      <hr/>
+      {% if data==None %}{% set id=0 %}{% else %} {% set id =data.id %} {% endif %}
+
+      <form action = "{{url_for('login',id=id)}}" method = "post">
+         <label for = "name">Search</label><br>
+         <input type = "text" name = "name" placeholder = "Name" value ="{{data.name}}"/><br>
+         <label for = "city">City</label><br>
+         <input type = "text" name = "city" placeholder = "city" value ="{{data.city}}" /><br>
+         <label for = "addr">addr</label><br>
+         <textarea name = "addr" placeholder = "addr" value ={{data.addr}}></textarea><br>
+         <input type = "submit" value = "Submit" />
+
+      </form>
+   </body>
+</html>
